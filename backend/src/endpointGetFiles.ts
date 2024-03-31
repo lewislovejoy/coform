@@ -1,4 +1,5 @@
 import {Request, Response} from "express";
+
 import {getUserUploads} from "./database";
 
 export default async function getFiles(req: Request, res: Response) {

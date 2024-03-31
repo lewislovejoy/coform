@@ -1,7 +1,5 @@
 const Db = require('mongodb')
 
-console.log('connect to mongo: ' + process.env.MONGO)
-
 const client = new Db.MongoClient(process.env.MONGO)
 
 const DB_NAME = 'newco'

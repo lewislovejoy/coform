@@ -1,6 +1,6 @@
-import {Box, Flex} from "@radix-ui/themes";
-import {UploadIcon} from "@radix-ui/react-icons";
 import React from "react";
+import {Flex} from "@radix-ui/themes";
+import {UploadIcon} from "@radix-ui/react-icons";
 
 export default function Header() {
   return (

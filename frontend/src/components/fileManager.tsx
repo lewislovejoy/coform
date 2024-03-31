@@ -1,12 +1,11 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
-import {Button, Flex, Text} from "@radix-ui/themes";
+import axios from "axios";
+import {Button, Flex} from "@radix-ui/themes";
 import { UploadIcon } from '@radix-ui/react-icons'
 
 import FileBox, {FileDef} from "@/components/fileBox";
 import {getUser} from "@/utils/user";
-import axios from "axios";
-import {loadFile} from "@/utils/loadFile";
 
 export default function FileManager() {
   const [isUploading, setIsUploading] = useState(false)

@@ -32,7 +32,6 @@ export default async function addFile(req: Request, res: Response) {
   const {userId, fileType} = req.query;
   const file: any = req.files?.file;
   if (userId && file.name) {
-    console.log('POST:', userId, file.data)
     const s3Data = await S3Upload(userId.toString(), file.filename, file.data)
     await addFileToDatabase(userId as string, {
       filename: file.name,
@@ -41,5 +40,4 @@ export default async function addFile(req: Request, res: Response) {
     })
     res.status(200).send()
   }
-
 }

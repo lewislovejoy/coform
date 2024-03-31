@@ -1,6 +1,6 @@
 import {Box, Theme, Container, Heading, Text } from '@radix-ui/themes';
-import FileManager from "@/components/fileManager";
 
+import FileManager from "@/components/fileManager";
 import Header from "@/components/header";
 
 export default function Home() {

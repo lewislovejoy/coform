@@ -5,7 +5,6 @@ import fileUpload from 'express-fileupload';
 
 dotenv.config()
 
-//import AddFiles from "./endpointAddFiles";
 import getFiles from "./endpointGetFiles";
 import addFile from "./endpointAddFile";
 
@@ -24,7 +23,6 @@ app.use(fileUpload({
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
-
 
 app.get("/getFiles", getFiles );
 app.post("/addFile", addFile);

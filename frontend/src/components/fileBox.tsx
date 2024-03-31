@@ -1,6 +1,6 @@
+import React from "react";
 import {Flex, Spinner} from "@radix-ui/themes";
 import {DotsHorizontalIcon, SymbolIcon, UploadIcon} from "@radix-ui/react-icons";
-import React from "react";
 
 export interface FileDef {
   filename: string;
