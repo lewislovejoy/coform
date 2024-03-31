@@ -10,8 +10,8 @@ export interface FileDef {
 }
 
 const FILE_ICONS = {
-  PDF: <UploadIcon/>,
-  TXT: <UploadIcon/>
+  PDF: <img src={"/pdf.png"} style={{ height: 30, width: 30 }} alt="text" />,
+  TXT: <img src={"/text.png"} style={{ height: 30, width: 30 }} alt="pdf" />,
 }
 
 const FILE_STATUS = {

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 import axios from "axios";
+import {toast} from "react-toastify";
 import {Button, Flex} from "@radix-ui/themes";
 import { UploadIcon } from '@radix-ui/react-icons'
 
@@ -58,11 +59,28 @@ export default function FileManager() {
   }
 
   const onDrop = (acceptedFiles: File[]) => {
+    if (acceptedFiles.length + files.length > 5) {
+      toast.error('Sorry, you\'re only allowed up to 5 files');
+      return;
+    }
+
+    let isValid = true;
+    acceptedFiles.forEach((file) => {
+      if (file.type !== 'application/pdf' && file.type !== 'text/plain') {
+        isValid = false;
+      }
+    })
+
+    if (!isValid) {
+      toast.error('Sorry, we only support PDF and TEXT files');
+      return;
+    }
+
     const newFiles: FileDef[] = acceptedFiles.map((file) => {
       return {
         file: file,
         filename: file.name,
-        fileType: 'PDF',
+        fileType: file.type === 'application/pdf' ? 'PDF' : 'TXT',
         status: 'Added'
       }
     })
