@@ -32,12 +32,16 @@ export default async function addFile(req: Request, res: Response) {
   const {userId, fileType} = req.query;
   const file: any = req.files?.file;
   if (userId && file.name) {
-    const s3Data = await S3Upload(userId.toString(), file.filename, file.data)
-    await addFileToDatabase(userId as string, {
-      filename: file.name,
-      fileType,
-      s3: s3Data.Location
-    })
-    res.status(200).send()
+    try {
+      const s3Data = {Location: 'none'} // await S3Upload(userId.toString(), file.filename, file.data)
+      await addFileToDatabase(userId as string, {
+        filename: file.name,
+        fileType,
+        s3: s3Data.Location
+      })
+      res.status(200).send()
+    } catch(ex) {
+      res.status(500).send('Failed to upload')
+    }
   }
 }
