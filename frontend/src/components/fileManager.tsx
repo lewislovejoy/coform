@@ -40,7 +40,7 @@ export default function FileManager() {
           await axios({
             method: 'post',
             url: `http://localhost:3001/addFile?userId=${getUser()}&filename=${newFile.filename}&fileType=${newFile.fileType}`,
-            timeout: 6000, // only wait for 2s
+            timeout: 6000, // only wait for 6s
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             },
